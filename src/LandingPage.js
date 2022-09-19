@@ -7,7 +7,7 @@ import {
 } from "@material-ui/core";
 import React from "react";
 import { useHistory } from "react-router-dom";
-import Logo from "./img/logo.png";
+import Logo from "./Components/img/logo.png";
 
 const useStyle = makeStyles((theme) => ({
   button1: {
