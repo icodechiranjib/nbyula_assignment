@@ -21,7 +21,7 @@ import ViewJobModal from "../Job/ViewJobModal";
 import { useAuth } from "../../Context/AuthContext";
 import { useHistory } from "react-router-dom";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-import Logo from "C:/Users/chira/OneDrive/Desktop/nbyula/src/img/logo.png";
+import Logo from "../img/logo.png";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 const useStyle = makeStyles((theme) => ({
