@@ -186,6 +186,7 @@ export default (props) => {
             <FilledInput
               onChange={handleChange}
               required
+              type="email"
               autoComplete="off"
               name="email"
               value={jobDetails.email}
@@ -195,6 +196,7 @@ export default (props) => {
             />
           </Grid>
           <Grid item xs={6}>
+            <Typography>Deadline</Typography>
             <FilledInput
               type="date"
               onChange={handleChange}
