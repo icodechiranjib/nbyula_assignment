@@ -62,14 +62,6 @@ export default (props) => {
             </Box>
             <Box display="flex" className={classes.info}>
               <Typography variant="caption">
-                <strong> Posted :</strong>
-              </Typography>
-              <Typography variant="body2">
-                <strong>recently</strong>
-              </Typography>
-            </Box>
-            <Box display="flex" className={classes.info}>
-              <Typography variant="caption">
                 <strong>Job type :</strong>
               </Typography>
               <Typography variant="body2">
@@ -106,12 +98,7 @@ export default (props) => {
           </Box>
         </DialogContent>
         <DialogActions>
-          <Button
-            variant="outlined"
-            component="a"
-            href={props.job.link}
-            target="_blank"
-          >
+          <Button variant="outlined" component="a" target="_blank">
             <strong>Apply</strong>
           </Button>
         </DialogActions>

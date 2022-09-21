@@ -48,7 +48,7 @@ export default (props) => {
   let dates = currDate.split(",");
   dates = dates[0].split("/");
   dates = dates[2] + "-" + dates[0] + "-" + dates[1];
-  let endDate = parseInt((new Date(dates) - new Date(deadDate)) / 86400000);
+  let endDate = parseInt((new Date(deadDate) - new Date(dates)) / 86400000);
 
   const [archive, setArchive] = useState({
     id: "",
@@ -61,7 +61,7 @@ export default (props) => {
           flag: archive.flag,
         })
       : (() => {
-          console.log("dd");
+          console.log();
         })();
 
     const req = await firestore().collection("jobs").orderBy("order").get();
@@ -115,16 +115,20 @@ export default (props) => {
             </Grid>
           ))}
         </Grid>
-        <Grid item container direction="column" alignItems="flex-end" xs>
+        <Grid item container direction="column" xs>
           <Grid item>
             <Typography>
-              <strong>Closing in {endDate} days,</strong>{" "}
-              <strong>{props.location},</strong> <strong>{props.phone},</strong>{" "}
-              <strong>{props.email}</strong>{" "}
+              {endDate <= 0 ? (
+                <strong>Apply Date Passed</strong>
+              ) : (
+                <strong>Closing in {endDate} Days</strong>
+              )}
             </Typography>
+            <Typography>{props.email}</Typography>
+            <Typography>{props.location}</Typography>
           </Grid>
           <Grid item>
-            <Box>
+            <Box marginTop={"10px"}>
               <Button
                 className="mx-2"
                 style={{ color: "whitesmoke", border: "1px solid white" }}
@@ -134,6 +138,7 @@ export default (props) => {
                 Check
               </Button>
               <Button
+                className="mx-2"
                 style={{ color: "whitesmoke", border: "1px solid white" }}
                 variant="outlined"
               >
@@ -141,6 +146,7 @@ export default (props) => {
               </Button>
               {true ? (
                 <Button
+                  className="mx-2"
                   style={{ color: "whitesmoke", border: "1px solid white" }}
                   variant="outlined"
                   onClick={() => archiveJob(props)}
